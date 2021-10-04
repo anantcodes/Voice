@@ -1,5 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:highlight_text/highlight_text.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class Voice extends StatelessWidget {
@@ -23,6 +24,44 @@ class Speech extends StatefulWidget {
 }
 
 class _SpeechState extends State<Speech> {
+
+  final Map<String, HighlightedWord> highlight = {
+    'flutter': HighlightedWord(
+      onTap: () => print('flutter'),
+      textStyle: const TextStyle(
+        color: Colors.blue,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'voice': HighlightedWord(
+      onTap: () => print('voice'),
+      textStyle: const TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'application': HighlightedWord(
+      onTap: () => print('application'),
+      textStyle: const TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'android': HighlightedWord(
+      onTap: () => print('android'),
+      textStyle: const TextStyle(
+        color: Colors.blueAccent,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'apple': HighlightedWord(
+      onTap: () => print('apple'),
+      textStyle: const TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  };
 
   stt.SpeechToText speech;
   bool isListening = false;
@@ -53,7 +92,22 @@ class _SpeechState extends State<Speech> {
           onPressed: (){},
           child: Icon(isListening ? Icons.mic : Icons.mic_none),
         ),
-      )
+      ),
+      body: SingleChildScrollView(
+        reverse: true,
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
+          child: TextHighlight(
+            text: text,
+            words: highlight,
+            textStyle: const TextStyle(
+              fontSize: 32.0,
+              color: Colors.black,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
