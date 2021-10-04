@@ -40,6 +40,10 @@ class _SpeechState extends State<Speech> {
       appBar: AppBar(
         title: Text('Confidence: ${(conf*100.0).toStringAsFixed(1)}%'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(isListening ? Icons.mic : Icons.mic_none),
+      ),
     );
   }
 }
