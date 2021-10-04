@@ -89,7 +89,7 @@ class _SpeechState extends State<Speech> {
         repeatPauseDuration: const Duration(milliseconds: 100),
         repeat: true,
         child: FloatingActionButton(
-          onPressed: (){},
+          onPressed: listen,
           child: Icon(isListening ? Icons.mic : Icons.mic_none),
         ),
       ),
@@ -109,5 +109,29 @@ class _SpeechState extends State<Speech> {
         ),
       ),
     );
+  }
+
+  void listen() async {
+    if (! isListening) {
+      bool available = await speech.initialize(
+        onStatus: (val) => print('onStatus: $val'),
+        onError: (val) => print('onError: $val'),
+      );
+      if (available) {
+        setState(() => isListening = true);
+        speech.listen(
+          onResult: (val) =>
+              setState(() {
+                text = val.recognizedWords;
+                if (val.hasConfidenceRating && val.confidence > 0) {
+                  conf = val.confidence;
+                }
+              }),
+        );
+      }
+    } else {
+      setState(() => isListening = false);
+      speech.stop();
+    }
   }
 }
