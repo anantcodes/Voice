@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voice/splash.dart';
 import 'package:voice/voice.dart';
 
 void main() {
@@ -9,9 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        initialRoute: '/home',
+        initialRoute: '/splash',
         routes: {
-          '/home': (context) => Voice(),
+          '/voice': (context) => Voice(),
+          '/splash': (context) => Splash()
         }
     );
   }
