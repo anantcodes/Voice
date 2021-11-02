@@ -36,28 +36,42 @@ class _SpeechState extends State<Speech> {
     'voice': HighlightedWord(
       onTap: () => print('voice'),
       textStyle: const TextStyle(
-        color: Colors.green,
+        color: Colors.blueGrey,
         fontWeight: FontWeight.bold,
       ),
     ),
     'application': HighlightedWord(
       onTap: () => print('application'),
       textStyle: const TextStyle(
-        color: Colors.red,
+        color: Colors.orange,
         fontWeight: FontWeight.bold,
       ),
     ),
     'android': HighlightedWord(
       onTap: () => print('android'),
       textStyle: const TextStyle(
-        color: Colors.blueAccent,
+        color: Colors.green,
         fontWeight: FontWeight.bold,
       ),
     ),
     'apple': HighlightedWord(
       onTap: () => print('apple'),
       textStyle: const TextStyle(
-        color: Colors.green,
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'country': HighlightedWord(
+      onTap: () => print('country'),
+      textStyle: const TextStyle(
+        color: Colors.deepPurpleAccent,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'lake': HighlightedWord(
+      onTap: () => print('lake'),
+      textStyle: const TextStyle(
+        color: Colors.blue,
         fontWeight: FontWeight.bold,
       ),
     ),
