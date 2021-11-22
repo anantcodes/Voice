@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
         body: Center(
           child: TextButton(
 
-            child: Text('Voice', style: TextStyle(fontSize: 20.0),),
+            child: Text('Tap to test Voice', style: TextStyle(fontSize: 20.0),),
             onPressed: () {
               Navigator.push(
                 context,
