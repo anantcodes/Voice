@@ -115,7 +115,7 @@ class _SpeechState extends State<Speech> {
             text: text,
             words: highlight,
             textStyle: const TextStyle(
-              fontSize: 32.0,
+              fontSize: 30.0,
               color: Colors.black,
               fontWeight: FontWeight.w400,
             ),
