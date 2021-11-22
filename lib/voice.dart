@@ -2,6 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight_text/highlight_text.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:voice/home.dart';
 
 class Voice extends StatelessWidget {
   @override
@@ -92,8 +93,29 @@ class _SpeechState extends State<Speech> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Confidence: ${(conf*100.0).toStringAsFixed(1)}%'),
+        // title: Text('Confidence: ${(conf*100.0).toStringAsFixed(1)}%'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+          Text('Confidence: ${(conf*100.0).toStringAsFixed(1)}%'),
+          TextButton.icon(
+            label: Text("Exit"),
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => Home(),
+                ),
+              );
+            },
+          )
+        ],
       ),
+    ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AvatarGlow(
         animate: isListening,
